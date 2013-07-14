@@ -1,0 +1,232 @@
+/*-- Colors -----------------------------------------------------------------------*/
+/*-- Mixins -----------------------------------------------------------------------*/
+/*-- Reset ------------------------------------------------------------------------*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, font, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  font-weight: inherit;
+  font-style: inherit;
+  font-size: 100%;
+  font-family: inherit;
+  vertical-align: baseline; }
+
+:focus {
+  outline: 0; }
+
+body {
+  line-height: 1;
+  color: black;
+  background: white;
+  font-family: helvetica, arial, sans-serif;
+  font-size: 100%; }
+
+ol, ul {
+  list-style: none; }
+
+table {
+  border-collapse: separate;
+  border-spacing: 0; }
+
+caption, th, td {
+  text-align: left;
+  font-weight: normal; }
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: ""; }
+
+blockquote, q {
+  quotes: "" ""; }
+
+a {
+  text-decoration: none; }
+
+li {
+  list-style: none; }
+
+p {
+  margin: 0px;
+  line-height: 1.2; }
+
+h1, h2, h3, h4 {
+  margin: 4px 0 0 0; }
+
+/*-- Utility Styles ------------------------------------------------------------------*/
+.left {
+  float: left; }
+
+.right {
+  float: right; }
+
+.clearfix:after {
+  content: ' ';
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden; }
+
+/*-- Structure Styles ---------------------------------------------------------------*/
+body {
+  font-size: 10pt;
+  color: #333;
+  background: #efefef; }
+
+#wrapper {
+  width: 100%; }
+
+#content {
+  float: right;
+  width: 100%;
+  position: relative;
+  z-index: 10;
+  margin: 10% 1% 0 0;
+  border: 1px solid #555;
+  box-shadow: 0px 0px 25px #bbb; }
+  #content li {
+    line-height: 1.9;
+    background: #ccc;
+    border-top: 1px solid #fff;
+    border-bottom: 1px solid #999;
+    display: block;
+    padding: 4px 5% 4px; }
+    #content li:last-child {
+      border-bottom: none; }
+    #content li.completed {
+      text-decoration: line-through; }
+    #content li input {
+      float: right; }
+  #content form {
+    margin: 0;
+    padding: 0; }
+    #content form input {
+      margin: 0;
+      padding: 10px 5px;
+      border: 0;
+      border-bottom: 1px solid #777;
+      width: 100%;
+      box-sizing: border-box;
+      color: #777;
+      font-size: 11pt; }
+
+#stats {
+  overflow: hidden;
+  display: none;
+  width: 75%;
+  margin: -2px auto 0;
+  padding: 7px 4px;
+  background-color: #1b8bec;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#1b8bec), to(#0f548c));
+  background-image: -webkit-linear-gradient(top, #1b8bec, #0f548c);
+  background-image: -moz-linear-gradient(top, #1b8bec, #0f548c);
+  background-image: -o-linear-gradient(top, #1b8bec, #0f548c);
+  background-image: -ms-linear-gradient(top, #1b8bec, #0f548c);
+  background-image: linear-gradient(top, #1b8bec, #0f548c);
+  filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,StartColorStr='$topColor', EndColorStr='$bottomColor');
+  border: 1px solid #0f548c;
+  border-radius: 0 0 7px 7px;
+  position: relative;
+  z-index: 0; }
+  #stats li {
+    float: left;
+    margin: 0 4% 0 0;
+    color: #fff;
+    text-shadow: 1px 1px 1px #0f548c; }
+
+#agendaWrapper {
+  float: right;
+  width: 25%;
+  z-index: 1;
+  position: relative; }
+
+#infoBar {
+  background-color: #1b8bec;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#1b8bec), to(#1470ba));
+  background-image: -webkit-linear-gradient(top, #1b8bec, #1470ba);
+  background-image: -moz-linear-gradient(top, #1b8bec, #1470ba);
+  background-image: -o-linear-gradient(top, #1b8bec, #1470ba);
+  background-image: -ms-linear-gradient(top, #1b8bec, #1470ba);
+  background-image: linear-gradient(top, #1b8bec, #1470ba);
+  filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,StartColorStr='$topColor', EndColorStr='$bottomColor');
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
+  height: 40px;
+  z-index: 2; }
+
+#banner {
+  width: 40%;
+  margin: 0 5.5% 0 29%;
+  float: left; }
+
+#banner, #date li {
+  color: #fff;
+  font-size: 14pt;
+  line-height: 2;
+  text-align: center; }
+
+#date {
+  float: right;
+  width: 25%; }
+  #date > li {
+    float: left;
+    margin: 0;
+    padding: 0 5%;
+    border-right: 1px solid #0d4675;
+    border-left: 1px solid #3397ee;
+    border-bottom: 0;
+    border-top: 0;
+    position: relative; }
+    #date > li:hover {
+      cursor: pointer; }
+    #date > li #datePicker {
+      display: none;
+      position: absolute;
+      background-color: #1471bb;
+      background-image: -webkit-gradient(linear, left top, left bottom, from(#1471bb), to(#105a95));
+      background-image: -webkit-linear-gradient(top, #1471bb, #105a95);
+      background-image: -moz-linear-gradient(top, #1471bb, #105a95);
+      background-image: -o-linear-gradient(top, #1471bb, #105a95);
+      background-image: -ms-linear-gradient(top, #1471bb, #105a95);
+      background-image: linear-gradient(top, #1471bb, #105a95);
+      filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,StartColorStr='$topColor', EndColorStr='$bottomColor');
+      border-top: 0;
+      border-bottom: 1px solid #999;
+      width: 170%;
+      left: -2px;
+      top: 106.5%;
+      z-index: 10;
+      border-radius: 0 0 7px 7px;
+      overflow: hidden; }
+      #date > li #datePicker li {
+        border-left: 1px solid #0f548c;
+        border-right: 1px solid #1179d2;
+        width: 26.1%;
+        float: left; }
+        #date > li #datePicker li:hover, #date > li #datePicker li.active {
+          background: #1471bb;
+          padding: 0 0 6px;
+          cursor: pointer; }
+          #date > li #datePicker li:hover a, #date > li #datePicker li.active a {
+            color: #a8d3f8; }
+        #date > li #datePicker li.current {
+          width: 45%;
+          font-size: 12pt;
+          line-height: 2.8;
+          text-shadow: 0px 0px 3px #777; }
+          #date > li #datePicker li.current:hover {
+            padding-bottom: 0; }
+        #date > li #datePicker li:first-child {
+          border-left: 0; }
+        #date > li #datePicker li:last-child {
+          border-right: 0; }
+        #date > li #datePicker li > a {
+          color: #1b8bec;
+          display: block; }

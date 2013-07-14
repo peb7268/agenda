@@ -1,0 +1,14 @@
+launchers:
+    integration:
+        command: "rspec ./testing/integration/*.rb"
+    headless:
+        command: "HEADLESS=1 rspec ./testing/integration/" 
+
+src_files:
+    - "testing/integration/*.rb"
+    - "src/js/global.js"
+
+test_page: "testing/SpecRunner.html"
+
+launch_in_dev:
+    - headless

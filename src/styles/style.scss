@@ -1,0 +1,219 @@
+/*-- Colors -----------------------------------------------------------------------*/
+$light-blue: #1b8bec;
+$dark-blue: #0f548c;
+
+/*-- Mixins -----------------------------------------------------------------------*/
+@mixin linearGradient($topColor, $bottomColor){
+	background-color: $topColor;
+	background-image: -webkit-gradient(linear, left top, left bottom, from($topColor), to($bottomColor));
+	background-image: -webkit-linear-gradient(top, $topColor, $bottomColor);
+	background-image: -moz-linear-gradient(top, $topColor, $bottomColor);
+	background-image: -o-linear-gradient(top, $topColor, $bottomColor);
+	background-image: -ms-linear-gradient(top, $topColor, $bottomColor);
+	background-image: linear-gradient(top, $topColor, $bottomColor);
+	filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,StartColorStr='$topColor', EndColorStr='$bottomColor');
+}
+
+/*-- Reset ------------------------------------------------------------------------*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, font, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td {margin: 0;padding: 0;border: 0;outline: 0;font-weight: inherit;font-style: inherit;font-size: 100%;font-family: inherit;vertical-align: baseline;}
+
+:focus {outline: 0;}
+body {line-height: 1;color: black;background: white; font-family: helvetica, arial, sans-serif; font-size: 100%;}
+ol, ul {list-style: none;}
+
+table {border-collapse: separate;border-spacing: 0;}
+caption, th, td {text-align: left;font-weight: normal;}
+blockquote:before, blockquote:after,
+q:before, q:after {content: "";}
+blockquote, q {quotes: "" "";}
+
+a { text-decoration: none; }
+li { list-style: none; }
+p { margin: 0px; line-height: 1.2; }
+h1, h2, h3, h4 { margin: 4px 0 0 0; }
+
+/*-- Utility Styles ------------------------------------------------------------------*/
+.left { float: left; }
+.right { float: right; }
+ .clearfix:after {
+    content: ' ';
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+}
+
+
+
+/*-- Structure Styles ---------------------------------------------------------------*/
+body { font-size: 10pt; color: #333; background: #efefef; }
+#wrapper {
+	width: 100%;
+}
+#content {
+	float: right;
+	width: 100%;
+	position: relative;
+	z-index: 10;
+	margin: 10% 1% 0 0;
+	border: 1px solid #555;
+	box-shadow: 0px 0px 25px #bbb;
+
+	li {
+		line-height: 1.9;
+		background: #ccc;
+		border-top: 1px solid #fff;
+		border-bottom: 1px solid #999;
+		display: block;
+		padding: 4px 5% 4px;
+	
+		&:last-child{
+			border-bottom: none;	
+		}
+
+		&.completed {
+			//color: #999; 
+			text-decoration: line-through;
+			span {}
+		}
+
+		input {
+			float: right;
+		}
+	}
+	form {
+		margin: 0;
+		padding: 0;
+
+		input {
+			margin: 0;
+			padding: 10px 5px;
+			border: 0;
+			border-bottom: 1px solid #777;
+			width: 100%;
+			box-sizing: border-box;
+			color: #777;
+			font-size: 11pt;
+		}
+	}
+}
+#stats{
+	overflow: hidden;
+	display: none;
+	width: 75%;
+	margin: -2px auto 0;
+	padding: 7px 4px;
+	@include linearGradient($light-blue, $dark-blue);
+	border: 1px solid darken(#1b8be6, 20%);
+	border-radius: 0 0 7px 7px;
+	position: relative;
+	z-index: 0;
+
+	li {
+		float: left;
+		margin: 0 4% 0 0;
+		color: #fff;
+		text-shadow: 1px 1px 1px darken(#1b8be6, 20%);
+	}
+}
+#agendaWrapper {
+	float: right;
+	width: 25%;
+	z-index: 1;
+	position: relative;
+}
+#infoBar {
+	@include linearGradient($light-blue, lighten($dark-blue, 10%));
+	border-top: 1px solid darken($dark-blue, 35%);
+	border-bottom: 1px solid darken($dark-blue, 35%);
+	height: 40px;
+	z-index: 2;
+}
+#banner {
+	width: 40%;
+	margin: 0 5.5% 0 29%;
+	float: left;
+}
+#banner, #date li {
+	color: #fff;
+	font-size: 14pt;
+	line-height: 2;
+	text-align: center;
+}
+#date {
+	float: right;
+	width: 25%;
+
+	& > li {
+		float: left;
+		margin: 0;
+		padding: 0 5%;
+		border-right: 1px solid darken($dark-blue, 5%);
+		border-left: 1px solid lighten($light-blue, 5%);
+		border-bottom: 0;
+		border-top: 0;
+		position: relative;
+		&:hover{
+			cursor: pointer;
+		}
+
+		#datePicker {
+			display: none;
+			position: absolute;
+			@include linearGradient(#1471bb, lighten($dark-blue, 2%));
+			border-top: 0;
+			border-bottom: 1px solid #999;
+			width: 170%;
+			left: -2px;
+			top: 106.5%;
+			z-index: 10;
+			border-radius: 0 0 7px 7px;
+			overflow: hidden;
+			//box-shadow: 0px 6px 27px #aaa;
+			
+			li {
+				border-left: 1px solid $dark-blue;
+				border-right: 1px solid darken($light-blue, 7%);
+				width: 26.1%;
+				float: left;
+				&:hover, &.active {
+					background: #1471bb;
+					padding: 0 0 6px;
+					cursor: pointer;
+					a {
+						color: lighten($light-blue, 30%);
+					}
+				}
+				&.current {
+					width: 45%;
+					font-size: 12pt;
+					line-height: 2.8;
+					text-shadow: 0px 0px 3px #777;
+					
+					&:hover {
+						padding-bottom: 0;
+					}
+				}
+				&:first-child {
+					border-left: 0;
+				}
+				&:last-child {
+					border-right: 0;
+				}
+
+				& > a {
+					color: $light-blue;
+					display: block;
+				}
+			}
+		}
+	}
+	#today{}
+}
